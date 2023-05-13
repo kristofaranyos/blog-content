@@ -8,7 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
-		writer.Write([]byte("Hello world!"))
+		writer.Write([]byte(fmt.Sprintf("Hello world! I'm %s.", request.URL.Query().Get("name"))))
 	})
 
 	log.Println("starting server...")
