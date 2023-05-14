@@ -7,6 +7,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+      - "9090:9090"
+    security_opt:
+      - "seccomp:unconfined"
+    cap_add:
+      - SYS_PTRACE
     volumes:
       - ./go.mod:/service/go.mod
       - ./go.sum:/service/go.sum
